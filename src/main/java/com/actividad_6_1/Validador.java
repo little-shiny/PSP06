@@ -5,8 +5,8 @@ package com.actividad_6_1;
  * Valida el nombre y el nombre del archivo
  */
 public class Validador {
-    static final String patronNombre = "^[a-z]{1,8}$";
-    static final String patronFichero = "^[a-zA-Z0-9]{1,8}\\\\.[a-zA-Z0-9]{3}$";
+    final String patronNombre = "^[a-z]{1,8}$";
+    final String patronFichero = "^[a-zA-Z0-9]{1,8}\\\\.[a-zA-Z0-9]{3}$";
 
     /**
      * Función que devuelve si es válida una cadena de caracteres para el nombre
@@ -15,7 +15,7 @@ public class Validador {
      * @param nombre cadena de texto del nombre
      * @return true si es válida
      */
-    public static boolean esValidoNombre(String nombre){
+    public boolean esValidoNombre(String nombre){
         return nombre.matches(patronNombre);
     }
 
@@ -26,7 +26,7 @@ public class Validador {
      * @param fichero nombre del fichero
      * @return true si es valida
      */
-    public static boolean esValidoFichero(String fichero){
+    public boolean esValidoFichero(String fichero){
         return fichero.matches(patronFichero);
     }
 
