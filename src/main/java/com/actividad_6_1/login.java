@@ -1,6 +1,13 @@
 package com.actividad_6_1;
 
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.IOException;
 import java.util.Scanner;
+import java.util.logging.FileHandler;
+import java.util.logging.Logger;
+import java.util.logging.SimpleFormatter;
+import java.util.logging.Level;
 
 /**
  * Tarea PSP06 - Ejercicio 6.1
@@ -12,13 +19,17 @@ import java.util.Scanner;
  * - Hay que tener log y validación de datos de entrada
  */
 public class login {
+    static String nomFichero = "";
+
+    // Variable para los logs, registra lo que va ocurriendo en la aplicación. login.class.getName usa el nombre de
+    // la clase como identificador
+    static Logger logger = Logger.getLogger(login.class.getName());
+
     public static void main (String[]args){
 
-
         solicitarNombre();
-
-        //solicitarFichero();
-        //mostrarFichero();
+        solicitarFichero();
+        mostrarFichero(nomFichero);
     }
 
     /**
@@ -51,9 +62,9 @@ public class login {
 
         while(!esCorrecto){
             System.out.println("Introduzca el nombre del fichero que desea consultar y su extensión");
-            String fichero = sc.nextLine();
+            nomFichero = sc.nextLine();
 
-            if(validador.esValidoFichero(fichero)){
+            if(validador.esValidoFichero(nomFichero)){
                 esCorrecto = true;
 
             } else{
@@ -62,5 +73,16 @@ public class login {
         }
     }
 
+    public static void mostrarFichero(String nomFichero) {
+        try (BufferedReader br = new BufferedReader(new FileReader(nomFichero))) {
+            String linea;
 
+            while ((linea = br.readLine()) != null) {
+                System.out.println(linea);
+            }
+
+        } catch (IOException e) {
+            System.out.println("Error al leer el fichero: " + e.getMessage());
+        }
+    }
 }
