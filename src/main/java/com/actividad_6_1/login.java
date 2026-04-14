@@ -21,6 +21,9 @@ public class login {
         //mostrarFichero();
     }
 
+    /**
+     * Método que solicita el nombre al usuario y valida la entrada
+     */
     public static void solicitarNombre(){
 
         Scanner sc = new Scanner(System.in);
@@ -28,7 +31,7 @@ public class login {
         Validador validador = new Validador();
 
         while(!esCorrecto){
-            System.out.println("Introduzca su nombre (sólo letras minúsculas");
+            System.out.println("Introduzca su nombre (sólo letras minúsculas)");
             String nombre = sc.nextLine();
 
             if(validador.esValidoNombre(nombre)){
@@ -39,4 +42,25 @@ public class login {
             }
         }
     }
+
+    public static void solicitarFichero(){
+
+        Scanner sc = new Scanner(System.in);
+        boolean esCorrecto = false;
+        Validador validador = new Validador();
+
+        while(!esCorrecto){
+            System.out.println("Introduzca el nombre del fichero que desea consultar y su extensión");
+            String fichero = sc.nextLine();
+
+            if(validador.esValidoFichero(fichero)){
+                esCorrecto = true;
+
+            } else{
+                System.out.println("Caracteres no aceptados");
+            }
+        }
+    }
+
+
 }
