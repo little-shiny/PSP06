@@ -42,3 +42,9 @@ abr 15, 2026 4:58:56 P. M. com.actividad_6_1.login solicitarFichero
 INFO: Fichero válido: prueba.txt
 abr 15, 2026 4:58:56 P. M. com.actividad_6_1.login mostrarFichero
 INFO: Leyendo fichero: prueba.txt
+abr 15, 2026 5:17:22 P. M. com.actividad_6_2.login solicitarNombre
+INFO: Solicitando nombre de usuario
+abr 15, 2026 5:17:25 P. M. com.actividad_6_2.login solicitarNombre
+INFO: Nombre válido introducido: cris
+abr 15, 2026 5:17:25 P. M. com.actividad_6_2.login solicitarFichero
+INFO: Solicitando nombre de fichero
