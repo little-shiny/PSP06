@@ -6,7 +6,7 @@ package com.actividad_6_1;
  */
 public class Validador {
     final String patronNombre = "^[a-z]{1,8}$";
-    final String patronFichero = "^[a-zA-Z0-9]{1,8}\\\\.[a-zA-Z0-9]{3}$";
+    final String patronFichero = "^[a-zA-Z0-9]{1,8}\\.[a-zA-Z0-9]{3}$";
 
     /**
      * Función que devuelve si es válida una cadena de caracteres para el nombre
