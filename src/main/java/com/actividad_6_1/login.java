@@ -38,8 +38,6 @@ public class login {
             System.out.println("Error configurando el log");
         }
 
-
-
         solicitarNombre();
         solicitarFichero();
         mostrarFichero(nomFichero);
@@ -55,14 +53,18 @@ public class login {
         Validador validador = new Validador();
 
         while(!esCorrecto){
+
+            logger.info("Solicitando nombre de usuario");
             System.out.println("Introduzca su nombre (sólo letras minúsculas)");
             String nombre = sc.nextLine();
 
             if(validador.esValidoNombre(nombre)){
                 esCorrecto = true;
+                logger.info("Nombre válido introducido: " + nombre);
 
             } else{
                 System.out.println("Caracteres no aceptados");
+                logger.warning("Nombre inválido introducido");
             }
         }
     }
@@ -75,13 +77,16 @@ public class login {
 
         while(!esCorrecto){
             System.out.println("Introduzca el nombre del fichero que desea consultar y su extensión");
+            logger.info("Solicitando nombre de fichero");
             nomFichero = sc.nextLine();
 
             if(validador.esValidoFichero(nomFichero)){
                 esCorrecto = true;
+                logger.info("Fichero válido: " + nomFichero);
 
             } else{
                 System.out.println("Caracteres no aceptados");
+                logger.warning("Nombre de fichero inválido");
             }
         }
     }
@@ -89,6 +94,7 @@ public class login {
     public static void mostrarFichero(String nomFichero) {
         try (BufferedReader br = new BufferedReader(new FileReader(nomFichero))) {
             String linea;
+            logger.info("Leyendo fichero: " + nomFichero);
 
             while ((linea = br.readLine()) != null) {
                 System.out.println(linea);
@@ -96,6 +102,7 @@ public class login {
 
         } catch (IOException e) {
             System.out.println("Error al leer el fichero: " + e.getMessage());
+            logger.severe("Error al leer el fichero: " + e.getMessage());
         }
     }
 }
