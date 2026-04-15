@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="psp06_firma">
+    <output-path>$PROJECT_DIR$/actividad_6_2_jar</output-path>
+    <root id="archive" name="psp06_firma.jar">
+      <element id="module-output" name="psp06" />
+    </root>
+  </artifact>
+</component>
