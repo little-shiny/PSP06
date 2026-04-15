@@ -27,6 +27,19 @@ public class login {
 
     public static void main (String[]args){
 
+        // Configuración del logger
+        try {
+            FileHandler fh = new FileHandler("app.log", true); // app.log es el archivo de salida, no borra los logs
+            // anteriores
+            fh.setFormatter(new SimpleFormatter()); //Formato básico del log
+            logger.addHandler(fh);
+            logger.setLevel(Level.ALL); // El nivel guarda todo
+        } catch (IOException e) {
+            System.out.println("Error configurando el log");
+        }
+
+
+
         solicitarNombre();
         solicitarFichero();
         mostrarFichero(nomFichero);
